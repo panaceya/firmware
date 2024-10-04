@@ -711,7 +711,7 @@ void setup()
         LOG_DEBUG("Saved TZ: %s \n", config.device.tzdef);
         setenv("TZ", config.device.tzdef, 1);
     } else {
-#ifdef USERPREFS_TZ_STRING  
+#ifdef USERPREFS_TZ_STRING
         if (strncmp((const char *)USERPREFS_TZ_STRING, "tzpl", 4) == 0) {
             setenv("TZ", "GMT0", 1);
         } else {
