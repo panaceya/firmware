@@ -715,12 +715,13 @@ void setup()
         if (strncmp((const char *)USERPREFS_TZ_STRING, "tzpl", 4) == 0) {
             setenv("TZ", "GMT0", 1);
         } else {
-            LOG_DEBUG("Using compiled/slipstreamed %s\n", USERPREFS_TZ_STRING); // important, removing this clobbers our magic string
+            LOG_DEBUG("Using compiled/slipstreamed %s\n",
+                      USERPREFS_TZ_STRING); // important, removing this clobbers our magic string
             setenv("TZ", (const char *)USERPREFS_TZ_STRING, 1);
         }
 #else
-        setenv("TZ", "GMT0", 1);       
-#endif        
+        setenv("TZ", "GMT0", 1);
+#endif
     }
     tzset();
     LOG_DEBUG("Set Timezone to %s\n", getenv("TZ"));
