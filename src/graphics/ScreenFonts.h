@@ -12,8 +12,8 @@
 #include "graphics/fonts/OLEDDisplayFontsUA.h"
 #endif
 
-#if (defined(USE_EINK) || defined(ILI9341_DRIVER) || defined(ST7701_CS) || defined(ST7735_CS) || defined(ST7789_CS) ||           \
-     defined(USE_ST7789) || defined(HX8357_CS)) &&                                                                               \
+#if (defined(USE_EINK) || defined(ILI9341_DRIVER) || defined(ILI9342_DRIVER) || defined(ST7701_CS) || defined(ST7735_CS) ||      \
+     defined(ST7789_CS) || defined(USE_ST7789) || defined(HX8357_CS)) &&                                                         \
     !defined(DISPLAY_FORCE_SMALL_FONTS)
 // The screen is bigger so use bigger fonts
 #define FONT_SMALL ArialMT_Plain_16  // Height: 19
@@ -27,14 +27,22 @@
 #define FONT_SMALL ArialMT_Plain_10_RU
 #else
 #ifdef OLED_UA
-#define FONT_SMALL ArialMT_Plain_10_UA
+#define FONT_SMALL ArialMT_Plain_10_UA // Height: 13
 #else
 #define FONT_SMALL ArialMT_Plain_10 // Height: 13
 #endif
 #endif
 #endif
+#ifdef OLED_UA
+#define FONT_MEDIUM ArialMT_Plain_16_UA // Height: 19
+#else
 #define FONT_MEDIUM ArialMT_Plain_16 // Height: 19
-#define FONT_LARGE ArialMT_Plain_24  // Height: 28
+#endif
+#ifdef OLED_UA
+#define FONT_LARGE ArialMT_Plain_24_UA // Height: 28
+#else
+#define FONT_LARGE ArialMT_Plain_24 // Height: 28
+#endif
 #endif
 
 #define _fontHeight(font) ((font)[1] + 1) // height is position 1
